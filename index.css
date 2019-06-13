@@ -1,0 +1,100 @@
+/* model层 */
+html{
+    font-size:16px;
+}
+.wrapper{
+    margin:0 auto;
+    width: 50rem;
+    height: 24rem;
+    display: flex;
+}
+.type_wrap{
+    height: 5rem;
+    line-height: 5rem;
+}
+.left{
+    float: left;
+    /* width: 20rem;
+    height: 20rem; */
+    flex: 1;
+    margin-right: 1.6rem;
+    text-align: center;
+
+}
+.right{
+    float: left;
+    /* width: 20rem;
+    height: 20rem; */
+    text-align: center;
+    flex: 1;
+}
+.left p:first-of-type{
+    color:#fd7b81;
+    font-size: 2.4rem;
+}
+.left p:last-of-type{
+   color: #ffc8c8;
+   font-size: 1.2rem;
+}
+.right p:first-of-type{
+    color:#4f4f4f;
+    font-size: 2.4rem;
+}
+.right p:last-of-type{
+   color:#c8c8c8;
+   font-size: 1.2rem;
+}
+/* Thumbnail 图标*/
+.icons{
+    height: 0;
+    padding-bottom: 30%;
+    overflow: hidden;
+}
+.icon{
+    position: relative;
+    float: left;
+    width: 20%;
+    padding-bottom: 15%;
+    overflow: hidden;
+    height: 0;
+}
+.icon-img{
+    position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 3.2rem;
+        box-sizing: border-box;
+        padding: .1rem
+}
+.icon-img-content{
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+   
+}
+.icon-desc{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: .44rem;
+    line-height: .44rem;
+    text-align: center;
+    font-size: 2.2rem;
+    color:#aaa;
+}
+.th_dec{
+    font-size: 3.2rem;
+    margin:2rem;
+}
+.dec_rig{
+    
+    font-size: 2rem;
+    color: #fd7b81;
+}
+.dec_left{
+    margin: 0 1.2rem;
+    font-size: 2rem;
+    color: #afafaf;
+}
