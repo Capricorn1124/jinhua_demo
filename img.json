@@ -1,5 +1,4 @@
 {
-    "ret": true,
     "data": {
       "iconList": [{
           "id": "1",
@@ -23,7 +22,7 @@
           "desc": "标题5"
         }, {
           "id": "6",
-          "imgUrl": "./line.pngg",
+          "imgUrl": "./line.png",
           "desc": "标题6"
         }, {
           "id": "7",

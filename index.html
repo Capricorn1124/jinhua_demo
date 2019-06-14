@@ -1,51 +1,4 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="//unpkg.com/iview/dist/styles/iview.css">
-    <script src="//unpkg.com/iview@1.0.1/dist/iview.min.js"></script>
-    <title>Document</title>
-</head>
-<body>
-        <div id="app">
-                <Row>
-                        <i-col span="12">col-12</i-col>
-                        <i-col span="12">col-12</i-col>
-                    </Row>
-              <model ></model>
-              </div>
-          
-   <script>
-         
-        Vue.component('model', {
-            template:` <Row>
-        <i-col span="12">col-12</i-col>
-        <i-col span="12">col-12</i-col>
-    </Row>`,
-            // data(){
-            //     return{
 
-            //     }
-            // }
-        })
-        Vue.component('Thumbnail', {
-        // ... 选项 ...
-        })
-       var app =new Vue({
-           el:'#app',
-           data:{
-               message:"hellpo"
-           }
-       })
-     
-   </script>
-    
-
-</body>
-</html> -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,79 +6,131 @@
     <title>VIP</title>
     <link rel="stylesheet" href="./index.css">
     <script type="text/javascript" src="http://v1.vuejs.org/js/vue.min.js"></script>
- 
-
+    <!-- <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script> -->
+    <!-- <script src="node_modules/vue-resource/dist/vue-resource.js"></script> -->
 </head>
 <body>
 
         <div id="app">
-            
-              <model :left_type="left_type" :right_type="right_type"></model>
-              <div class="thumbnail">
-                  <div class="th_dec">{{left_type}}<span class="dec_left"
-                    >(适合<span class="dec_rig">独立摄影师</span>)</span></div>
-              <div class="icons">
-                    <div class="icon">
-                        <div class='icon-img' :>
-                          <img class='icon-img-content' src="./line.png" />
-                         </div>
-                        <p class="icon-desc">标题1</p>
+                <div class="wrapper">
+                        <div class="left" @click="chooseHigh"  :class="{styleChange:isStyle}" >
+                            <div class="type_wrap" >
+                                <p class="original" :class="{change:isActive}">高级版</p>
+                                <p class="original-vice" :class="{vice:isActive}">适合独立摄影师</p>
+                            </div>
+                        </div>
+                        <div class="right" @click="choosePer" :class="{styleChange:isChange}">
+                            <div class="type_wrap">
+                                <p class="original" :class="{change:isClick}">定制版</p>
+                                <p  class="original-vice" :class="{vice:isClick}">适合小型工作室</p>
+                            </div>
+                        </div>
                     </div>
-                    
-                </div>
-              </div>
+              <!-- <model :left_type="left_type" :right_type="right_type"></model> -->
+              <Thumbnail :left_type="left_type"></Thumbnail>
             </div>
           
    <script>
-       
-        Vue.component('model', {
-            template:`<div class="wrapper">
-                <div class="left">
-                <div class="type_wrap">
-                    <p>{{left_type}}</p>
-                    <p>{{left_des}}</p>
-                </div>
-                </div>
-                <div class="right">
-                <div class="type_wrap">
-                    <p>{{right_type}}</p>
-                    <p>{{right_des}}</p>
-                </div>
-                </div>
-            </div>`,
-            props:['left_type','right_type'],
-            data(){
-                return{
-                    left_des:"适合独立摄影师",
-                    right_des:"适合小型工作室"
-                }
-            }
-        })
         Vue.component('Thumbnail', {
+            template:`<div class="thumbnail">
+                  <div class="th_dec">{{left_type}}<span class="dec_left"
+                    >(适合<span class="dec_rig">{{des}}</span>)</span></div>
+              <div class="icons">
+                    <div class="icon" v-for="item in iconList" :key="item.id" @click="getDetai">
+                        <div class='icon-img' >
+                          <img class='icon-img-content' src="{{item.imgUrl}}" />
+                         </div>
+                        <p class="icon-desc">{{item.desc}}</p>
+                    </div>
+                </div>
+              </div>`,
+              props:['left_type'],
         data(){
             return{
+                des:"独立摄影师",
                 iconList:[{
-
-                }]
+                    "id": "1",
+                    "imgUrl": "./line.png",
+                    "desc": "标题1"
+                    }, {
+                    "id": "2",
+                    "imgUrl": "./line.png",
+                    "desc": "标题2"
+                    }, {
+                    "id": "3",
+                    "imgUrl": "./line.png",
+                    "desc": "标题3"
+                    }, {
+                    "id": "4",
+                    "imgUrl": "./line.png",
+                    "desc": "标题4"
+                    }, {
+                    "id": "5",
+                    "imgUrl": "./line.png",
+                    "desc": "标题5"
+                    }, {
+                    "id": "6",
+                    "imgUrl": "./line.png",
+                    "desc": "标题6"
+                    }, {
+                    "id": "7",
+                    "imgUrl": "./line.png",
+                    "desc": "标题7"
+                    }, {
+                    "id": "8",
+                    "imgUrl": "./line.png",
+                    "desc": "标题8"
+                    }, {
+                    "id": "9",
+                    "imgUrl": "./line.png",
+                    "desc": "标题9"
+                    },{
+                        "id": "10",
+                        "imgUrl": "./line.png",
+                        "desc": "标题10"
+                    }],
+                    
             }
         },
-        methods: {
-            getImg(){
-                this.$axios.get('./img.json').then(res=>{
-                    console.log(res)
-                })
+        methods:{
+            getDetai(e){
+                console.log(e.target)
             }
-        },
-        })
-
-        // import axios from './node_modules/axios';
-        //  Vue.prototype.$axios = axios;
+        }
+        }) 
        var app =new Vue({
            el:'#app',
            data:{
             left_type:"高级版",
             right_type:"定制版",
-           }
+            left_des:"适合独立摄影师",
+            right_des:"适合小型工作室",
+            choose:"高级版",
+            isActive:true,
+            isClick:false,
+            isStyle:true,
+            isChange:false
+           },
+           methods: {
+            chooseHigh(){
+                    if (this.isActive==false){
+                     this.isActive=!this.isActive;
+                    this.isStyle=!this.isStyle;
+                    this.isClick=!this.isClick;
+                    this.isChange=!this.isChange;
+                    }
+                    
+                },
+                choosePer(){
+                    if(this.isClick==false){
+                    this.isActive=!this.isActive;
+                    this.isStyle=!this.isStyle;
+                    this.isClick=!this.isClick;
+                    this.isChange=!this.isChange;}
+                }
+         
+           },
+       
        })
      
    </script>

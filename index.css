@@ -9,8 +9,9 @@ html{
     display: flex;
 }
 .type_wrap{
-    height: 5rem;
-    line-height: 5rem;
+    height: 10rem;
+    /* margin: 0 auto; */
+    
 }
 .left{
     float: left;
@@ -19,6 +20,8 @@ html{
     flex: 1;
     margin-right: 1.6rem;
     text-align: center;
+    border:1px solid #f6f6f6;
+    background-color: #f6f6f6;
 
 }
 .right{
@@ -27,22 +30,32 @@ html{
     height: 20rem; */
     text-align: center;
     flex: 1;
+    border:1px solid #f2f2f2;
+    background-color: #f6f6f6;
 }
-.left p:first-of-type{
+.styleChange{
+    border:1px solid #fbcdc6;
+    background-color: #fff8f6;
+}
+.type_wrap .change{
     color:#fd7b81;
-    font-size: 2.4rem;
+    font-size: 3rem;
+    font-weight: bolder
 }
-.left p:last-of-type{
+.type_wrap .vice{
    color: #ffc8c8;
-   font-size: 1.2rem;
+   font-size: 1.8rem;
+   ;
 }
-.right p:first-of-type{
+.original{
     color:#4f4f4f;
-    font-size: 2.4rem;
+    font-size: 3rem;
+    font-weight: bolder;
 }
-.right p:last-of-type{
+.original-vice{
    color:#c8c8c8;
-   font-size: 1.2rem;
+   font-size: 1.8rem;
+   
 }
 /* Thumbnail 图标*/
 .icons{
@@ -50,6 +63,9 @@ html{
     padding-bottom: 30%;
     overflow: hidden;
 }
+/* .bor{
+    border:2px solid black;
+ } */
 .icon{
     position: relative;
     float: left;
