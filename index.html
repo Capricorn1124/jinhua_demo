@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>VIP</title>
     <link rel="stylesheet" href="./index.css">
-    <script type="text/javascript" src="http://v1.vuejs.org/js/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script type="text/javascript" src="http://v1.vuejs.org/js/vue.min.js"></script> -->
     <!-- <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script> -->
     <!-- <script src="node_modules/vue-resource/dist/vue-resource.js"></script> -->
 </head>
@@ -26,90 +27,161 @@
                             </div>
                         </div>
                     </div>
+                    
               <!-- <model :left_type="left_type" :right_type="right_type"></model> -->
-              <Thumbnail :left_type="left_type"></Thumbnail>
-            </div>
+              <Thumbnail :choose_des="choose_des" :choose_type="choose_type"></Thumbnail>
+           
+                   
+                 <!-- <div id="dialog">
+                  <div class="dialog-cover" v-if="isShow"></div>
+                    <div class="dialog-box">
+                        <div class="dialog-title">{{choose_type}}-{{choose_title}}</div>
+                        <div class="dialog-content">{{choose_content}}</div>
+                        <div class="dialog-del">
+                            <img src="img/close.png" alt="">
+                        </div>
+                    </div>
+                </div> -->
+         </div>
           
    <script>
         Vue.component('Thumbnail', {
-            template:`<div class="thumbnail">
-                  <div class="th_dec">{{left_type}}<span class="dec_left"
-                    >(适合<span class="dec_rig">{{des}}</span>)</span></div>
+            template:`<div><div class="thumbnail">
+                  <div class="th_dec">{{choose_type}}<span class="dec_left"
+                    >(适合<span class="dec_rig">{{choose_des}}</span>)</span></div>
               <div class="icons">
-                    <div class="icon" v-for="item in iconList" :key="item.id" @click="getDetai">
+                    <div class="icon" v-for="item in iconList" :key="item.id" @click="getDetai(item)">
                         <div class='icon-img' >
-                          <img class='icon-img-content' src="{{item.imgUrl}}" />
+                          <img class='icon-img-content' :src="item.imgUrl" />
                          </div>
                         <p class="icon-desc">{{item.desc}}</p>
                     </div>
                 </div>
-              </div>`,
-              props:['left_type'],
+              </div>
+              
+
+           
+                
+            <div id="dialog" v-if="isShow">
+                  <div class="dialog-cover" ></div>
+                    <div class="dialog-box" >
+                        <div class="dialog-title">{{choose_type}}</div>
+                        <div class="dialog-content"></div>
+                        <div class="dialog-del"  @click="close">
+                            <img src="img/close.png" alt="">
+                        </div>
+                    </div>
+                    
+                </div>
+              </div>
+              `,
+              props:['choose_type','choose_des'],
         data(){
             return{
-                des:"独立摄影师",
                 iconList:[{
                     "id": "1",
-                    "imgUrl": "./line.png",
-                    "desc": "标题1"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题1",
+                    "detail":"标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1标题1"
                     }, {
                     "id": "2",
-                    "imgUrl": "./line.png",
-                    "desc": "标题2"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题2",
+                    "detail":"标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2标题2"
                     }, {
                     "id": "3",
-                    "imgUrl": "./line.png",
-                    "desc": "标题3"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题3",
+                    "detail":"标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3标题3"
                     }, {
                     "id": "4",
-                    "imgUrl": "./line.png",
-                    "desc": "标题4"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题4",
+                    "detail":"标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4标题4"
                     }, {
                     "id": "5",
-                    "imgUrl": "./line.png",
-                    "desc": "标题5"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题5",
+                    "detail":"标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5标题5"
                     }, {
                     "id": "6",
-                    "imgUrl": "./line.png",
-                    "desc": "标题6"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题6",
+                    "detail":"标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6标题6"
                     }, {
                     "id": "7",
-                    "imgUrl": "./line.png",
-                    "desc": "标题7"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题7",
+                    "detail":"标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7标题7"
                     }, {
                     "id": "8",
-                    "imgUrl": "./line.png",
-                    "desc": "标题8"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题8",
+                    "detail":"标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8标题8"
                     }, {
                     "id": "9",
-                    "imgUrl": "./line.png",
-                    "desc": "标题9"
+                    "imgUrl": "img/line.png",
+                    "desc": "标题9",
+                    "detail":"标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9标题9"
                     },{
                         "id": "10",
-                        "imgUrl": "./line.png",
-                        "desc": "标题10"
+                        "imgUrl": "img/line.png",
+                        "desc": "标题10",
+                        "detail":"标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10标题10"
                     }],
+                    choose_title:"",
+                    choose_content:"",
+                    isShow:true,
                     
             }
         },
         methods:{
             getDetai(e){
-                console.log(e.target)
+             this.choose_title=e.desc;
+             this.choose_content=e.detail;     
+             this.isShow=true;
+            },
+            close(){
+                this.isShow=false;
             }
         }
         }) 
        var app =new Vue({
            el:'#app',
            data:{
-            left_type:"高级版",
-            right_type:"定制版",
-            left_des:"适合独立摄影师",
-            right_des:"适合小型工作室",
-            choose:"高级版",
+            choose_type:"高级版",
+            choose_des:"独立摄影师",
             isActive:true,
             isClick:false,
             isStyle:true,
-            isChange:false
+            isChange:false,
+           
+            widNum:{ 
+            //内容宽度
+            type: Number,
+            default:86.5
+            },
+            leftSite:{
+            // 左定位
+            type: Number,
+            default:6.5
+            },
+            topDistance: {
+            //top上边距
+            type: Number,
+            default:35
+            },
+            pdt:{
+            //上padding
+            type: Number,
+            default:22
+            },
+            pdb:{
+            //下padding
+            type: Number,
+            default:47
+            }
+            
            },
            methods: {
             chooseHigh(){
@@ -119,6 +191,11 @@
                     this.isClick=!this.isClick;
                     this.isChange=!this.isChange;
                     }
+                    this.choose_type="高级版";
+                    this.choose_des="独立摄影师";
+                    // console.log("1")
+                    // console.log(index)
+                    // // this.img_detail=e;
                     
                 },
                 choosePer(){
@@ -127,7 +204,13 @@
                     this.isStyle=!this.isStyle;
                     this.isClick=!this.isClick;
                     this.isChange=!this.isChange;}
-                }
+                    this.choose_type="定制版";
+                    this.choose_des="小型工作室";
+                },
+                // getMsg(msg_detail){
+                    
+                    
+                // }
          
            },
        
